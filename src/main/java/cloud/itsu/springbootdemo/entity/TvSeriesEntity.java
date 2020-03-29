@@ -2,23 +2,19 @@ package cloud.itsu.springbootdemo.entity;
 
 import lombok.Data;
 
-import java.util.HashMap;
-import java.util.Map;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Data
+@Entity
 public class TvSeriesEntity {
+    @Id private Integer id;
     private String name;
-    private String description;
-    private Map<String, Integer> episodeSeasonMap = new HashMap<>();
 
-    public TvSeriesEntity(String name, String description) {
-        this.name = name;
-        this.description = description;
-    }
+    public TvSeriesEntity() { }
 
-    public TvSeriesEntity(String name, String description, Map<String, Integer> episodeSeasonMap) {
+    public TvSeriesEntity(int id, String name) {
+        this.id = id;
         this.name = name;
-        this.description = description;
-        this.episodeSeasonMap = episodeSeasonMap;
     }
 }

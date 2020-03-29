@@ -2,12 +2,18 @@ package cloud.itsu.springbootdemo.dto;
 
 import lombok.Data;
 
-import java.util.HashMap;
-import java.util.Map;
+import javax.persistence.Id;
 
 @Data
 public class TvSeriesDto {
+    @Id
+    private Integer id;
     private String name;
-    private String description;
-    private Map<String, Integer> episodeSeasonMap = new HashMap<>();
+
+    public TvSeriesDto() { }
+
+    public TvSeriesDto(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
