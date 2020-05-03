@@ -18,14 +18,18 @@ public class TvSeriesService {
     @Autowired
     TVSeriesRepository tvSeriesRepository;
 
+    @Autowired
+    NameEvaluationService nameEvaluationService;
+
     public List<TvSeriesEntity> getAllTvSeries() {
         return (List<TvSeriesEntity>) tvSeriesRepository.findAll();
     }
 
-    public String saveTvSeries(int id, String name) {
-        tvSeriesRepository.save(new TvSeriesEntity(id, name));
-        log.info("successfully saved request id " + id);
-        return "successfully saved request id " + id;
+    public String saveTvSeries(String name) {
+        String updatedName = "the evaluated name is " + nameEvaluationService.evaluateName(name);
+        tvSeriesRepository.save(new TvSeriesEntity(updatedName));
+        log.info("successfully saved request with name " + name);
+        return "successfully saved request with name " + name;
     }
 
     public String saveTvSeriesFromBody(TvSeriesDto tvSeriesDto) {

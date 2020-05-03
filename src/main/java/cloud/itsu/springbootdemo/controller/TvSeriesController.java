@@ -30,11 +30,9 @@ public class TvSeriesController {
         return tvSeriesService.getTvSeries(id);
     }
 
-    @PostMapping ("/save/{id}")
-    public String save(@RequestParam String name, @PathVariable int id) {
-        System.out.println("name is " + name);
-        System.out.println("id is " + id);
-        return tvSeriesService.saveTvSeries(id, name);
+    @PostMapping ("/save/")
+    public String save(@RequestParam String name) {
+        return tvSeriesService.saveTvSeries(name);
     }
 
     @PostMapping (value="/save-body/", consumes = MediaType.APPLICATION_JSON_VALUE,

@@ -15,7 +15,7 @@ public class TvSeriesEntity {
 
     public TvSeriesEntity() { }
 
-    public TvSeriesEntity(int id, String name) {
+    public TvSeriesEntity(String name) {
         this.id = id;
         this.name = name;
     }
