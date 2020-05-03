@@ -1,0 +1,12 @@
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-master.xml
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_java_examples
+    username: springuser
+    password: springuser
+    initialization-mode: always
