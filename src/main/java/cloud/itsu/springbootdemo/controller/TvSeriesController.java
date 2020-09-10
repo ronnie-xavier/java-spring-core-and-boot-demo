@@ -3,13 +3,11 @@ package cloud.itsu.springbootdemo.controller;
 import cloud.itsu.springbootdemo.dto.TvSeriesDto;
 import cloud.itsu.springbootdemo.entity.TvSeriesEntity;
 import cloud.itsu.springbootdemo.service.TvSeriesService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/tv-series/")
@@ -20,7 +18,7 @@ public class TvSeriesController {
 
     @GetMapping ("/get/")
     public List<TvSeriesEntity> get() {
-        System.out.println("Inside Get Controller for TV Series");
+        System.out.println("Inside Get 2 Controller for TV Series");
         return tvSeriesService.getAllTvSeries();
     }
 
@@ -39,5 +37,11 @@ public class TvSeriesController {
             produces = MediaType.APPLICATION_XML_VALUE)
     public String save(@RequestBody TvSeriesDto tvSeriesDto) {
         return tvSeriesService.saveTvSeriesFromBody(tvSeriesDto);
+    }
+
+    @GetMapping ("/get-one/")
+    public TvSeriesEntity getOne() {
+        System.out.println("Inside Get Controller for TV Series");
+        return tvSeriesService.getOneTvSeries();
     }
 }
