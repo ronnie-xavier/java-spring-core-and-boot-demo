@@ -28,7 +28,7 @@ public class TvSeriesController {
         return tvSeriesService.getTvSeries(id);
     }
 
-    @PostMapping ("/save/")
+    @PostMapping ("/save")
     public String save(@RequestParam String name) {
         return tvSeriesService.saveTvSeries(name);
     }
